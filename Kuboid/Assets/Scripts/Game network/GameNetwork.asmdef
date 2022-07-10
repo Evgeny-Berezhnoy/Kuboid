@@ -1,0 +1,19 @@
+{
+    "name": "GameNetwork",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ae77cce8529d3a9488dbaf85f2fd7fe6",
+        "GUID:0da6d172d18a54e4389d0dce1e1ffdf2",
+        "GUID:831409e8f9d13b5479a3baef9822ad34",
+        "GUID:57c32fc907df0f54e8e6e8f0d2488336"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

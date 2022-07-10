@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0199c11aa6f514784c5c69cd8378d8, type: 3}
+  m_Name: PlayFabEditorPrefsSO
+  m_EditorClassIdentifier: 
+  DevAccountEmail: berezhnoy92d@list.ru
+  DevAccountToken: z6ao3a6cna1iihaji7kc4w9sb51wtud7yocg8maogw6fndb5biscdrjb3t8m6gwy46earxge66id3ihpi94ambyg89nh3f5jqawjbzww675zyrbqyyjjifqh9q5mcb6mkiottonadnmtzo9zh5we4e3afrz4wr9bbk9j1k3wf867juo6wrw78ccuc54uh7sckdcn9tsn
+  SelectedStudio: Rainbow Needles
+  SdkPath: Assets/PlayFabSDK
+  EdExPath: 
+  LocalCloudScriptPath: 
+  PanelIsShown: 0
+  curMainMenuIdx: 1
+  curSubMenuIdx: 0
