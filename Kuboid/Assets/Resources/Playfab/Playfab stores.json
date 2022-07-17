@@ -1,0 +1,49 @@
+[
+  {
+    "StoreId": "garlic_farmer",
+    "Store": [
+      {
+        "ItemId": "pistol",
+        "VirtualCurrencyPrices": {
+          "GB": 5,
+          "RM": null
+        },
+        "CustomData": "",
+        "DisplayPosition": null
+      },
+      {
+        "ItemId": "rifle",
+        "VirtualCurrencyPrices": {
+          "GB": 10,
+          "RM": null
+        },
+        "CustomData": "",
+        "DisplayPosition": null
+      },
+      {
+        "ItemId": "pistol_clip",
+        "VirtualCurrencyPrices": {
+          "GB": 1,
+          "RM": null
+        },
+        "CustomData": "",
+        "DisplayPosition": null
+      },
+      {
+        "ItemId": "rifle_clip",
+        "VirtualCurrencyPrices": {
+          "GB": 2,
+          "RM": null
+        },
+        "CustomData": "",
+        "DisplayPosition": null
+      }
+    ],
+    "SegmentOverrides": [],
+    "MarketingData": {
+      "DisplayName": "Garlic farmer",
+      "Description": "No one could ever think that a simple garlic farmer could provide you high quality armament.",
+      "Metadata": null
+    }
+  }
+]
