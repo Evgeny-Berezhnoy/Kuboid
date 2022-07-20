@@ -1,0 +1,285 @@
+{
+  "CatalogVersion": "16_07_2022",
+  "Catalog": [
+    {
+      "ItemId": "pistol_bullet",
+      "ItemClass": "Ammo",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Pistol bullet",
+      "Description": "Ammo for pistol. One clip contains 32 bullets",
+      "VirtualCurrencyPrices": {},
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "Pistol",
+        "ammo",
+        "bullet"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": true,
+      "IsTradable": false,
+      "ItemImageUrl": "https://cdn0.iconfinder.com/data/icons/weapon-5/100/2-512.png",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "rifle_bullet",
+      "ItemClass": "Ammo",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Pistol bullet",
+      "Description": "Ammo for a rifle. One clip contains 48 bullets.",
+      "VirtualCurrencyPrices": {},
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "Rifle",
+        "ammo",
+        "bullet"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": true,
+      "IsTradable": false,
+      "ItemImageUrl": "https://as2.ftcdn.net/v2/jpg/03/45/37/37/1000_F_345373701_ASxNGMi1oqppKAJ3U9cAKpaT70j2atXa.jpg",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "pistol",
+      "ItemClass": "Weapon",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Pistol",
+      "Description": "Basic weapon. Does little damage to flesh enemies.",
+      "VirtualCurrencyPrices": {
+        "GB": 5
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "Pistol",
+        "weapon"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": "https://cdn-icons-png.flaticon.com/512/1022/1022348.png",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "rifle",
+      "ItemClass": "Weapon",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Rifle",
+      "Description": "Basic weapon. Does medium damage to flesh enemies.",
+      "VirtualCurrencyPrices": {
+        "GB": 10
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "Rifle",
+        "weapon"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": "https://findicons.com/files/icons/2770/ios_7_icons/512/rifle.png",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "pistol_clip",
+      "ItemClass": "Clip",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Pistol clip",
+      "Description": "Pistol clip. Contains 32 bullets.",
+      "VirtualCurrencyPrices": {
+        "GB": 1
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "pistol",
+        "ammo",
+        "bullet",
+        "clip"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 32,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": "https://thumbs.dreamstime.com/b/gun-magazine-icon-gun-magazine-icon-flat-color-design-vector-illustration-140980896.jpg",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "rifle_clip",
+      "ItemClass": "Clip",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Rifle clip",
+      "Description": "Rifle clip. Contains 48 bullets.",
+      "VirtualCurrencyPrices": {
+        "GB": 2
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "rifle",
+        "ammo",
+        "bullet",
+        "clip"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 48,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": "https://w7.pngwing.com/pngs/694/134/png-transparent-computer-icons-magazine-rifle-ammunition-magazine-miscellaneous-text-logo.png",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "pistol_bundle",
+      "ItemClass": "Pistol bundle",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": "Starter bundle",
+      "Description": "For newbies. Start your journey with this bundle.",
+      "VirtualCurrencyPrices": {
+        "GB": 10
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "pistol",
+        "bundle"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": {
+        "BundledItems": [
+          "pistol",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip",
+          "pistol_clip"
+        ],
+        "BundledResultTables": [],
+        "BundledVirtualCurrencies": null
+      },
+      "CanBecomeCharacter": false,
+      "IsStackable": true,
+      "IsTradable": false,
+      "ItemImageUrl": "https://i.pinimg.com/736x/eb/52/5e/eb525e9c272fe9224d07dfc49b4754c3.jpg",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "weapon_box",
+      "ItemClass": "Weapon box",
+      "CatalogVersion": "16_07_2022",
+      "DisplayName": null,
+      "Description": null,
+      "VirtualCurrencyPrices": {},
+      "RealCurrencyPrices": null,
+      "Tags": [
+        "Weapon",
+        "Box"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": 1,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": {
+        "KeyItemId": null,
+        "ItemContents": [],
+        "ResultTableContents": [
+          "weapon_droptable"
+        ],
+        "VirtualCurrencyContents": null
+      },
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": true,
+      "IsTradable": false,
+      "ItemImageUrl": "https://static.wikia.nocookie.net/play-rust/images/a/ac/Gun_Box_icon.png/revision/latest/top-crop/width/360/height/360?cb=20161208162420",
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    }
+  ],
+  "DropTables": [
+    {
+      "TableId": "weapon_droptable",
+      "Nodes": [
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "pistol",
+          "Weight": 4
+        },
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "rifle",
+          "Weight": 1
+        }
+      ]
+    }
+  ]
+}
