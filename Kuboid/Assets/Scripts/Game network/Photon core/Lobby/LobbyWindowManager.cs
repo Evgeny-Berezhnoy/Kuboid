@@ -8,13 +8,19 @@ public class LobbyWindowManager : MonoBehaviourPunCallbacks
 {
     #region Fields
 
-    [Header("Settings")]
+    [Header("Playfab")]
+    [SerializeField] private string _titleID = "63BDB";
+    [SerializeField] private string _username = "berezhnoy92";
+    [SerializeField] private string _password = "berezhnoy92";
+    
+    [Header("Photon")]
     [SerializeField] private string _gameVersion = "1";
     [SerializeField] private string _region = "eu";
     
     [Header("Scripts")]
     [SerializeField] private LobbyView _lobby;
     [SerializeField] private RoomView _room;
+    [SerializeField] private SceneView _scene;
 
     private LoadBalancingClient _client;
 
@@ -24,18 +30,7 @@ public class LobbyWindowManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        PhotonNetwork.GameVersion                       = _gameVersion;
-        PhotonNetwork.PhotonServerSettings.DevRegion    = _region;
-        PhotonNetwork.NickName                          = Guid.NewGuid().ToString();
-        PhotonNetwork.AutomaticallySyncScene            = true;
-        
-        _client = PhotonNetwork.NetworkingClient;
-        
-        _lobby.SubscribeRoomSearchEvent(OnRoomSearch);
-        _lobby.SubscribeRoomManualCreationCallback(OnRoomCreation);
-        _lobby.SubscribeRoomSelectionCallback(OnRoomSelection);
-
-        Connect();
+        PlayfabConnect();
     }
 
     private void OnDestroy()
@@ -59,7 +54,7 @@ public class LobbyWindowManager : MonoBehaviourPunCallbacks
     {
         if(!PhotonHandler.AppQuits)
         {
-            Connect();
+            PhotonConnect();
         };
     }
 
@@ -67,7 +62,14 @@ public class LobbyWindowManager : MonoBehaviourPunCallbacks
 
     #region Methods
 
-    private void Connect()
+    private void PlayfabConnect()
+    {
+        var playfabLoginController = new PlayfabLoginController(_titleID);
+
+        playfabLoginController.ConnectPlayfab(_username, _password, PlayfabConnected);
+    }
+
+    private void PhotonConnect()
     {
         _client.AddCallbackTarget(this);
 
@@ -92,14 +94,41 @@ public class LobbyWindowManager : MonoBehaviourPunCallbacks
         _room.CreateRoom(roomName);
     }
     
-    public void OnRoomSelection(RoomInfo roomInfo)
+    private void OnRoomSelection(RoomInfo roomInfo)
     {
         _room.JoinRoom(roomInfo.Name);
     }
     
-    private void OnRoomCreation(RoomLinkView roomLink)
+    private void OnStartGame()
     {
-        roomLink.SubscribeJoinRoomCallback(OnRoomSelection);
+        _scene.StartGame();
+    }
+
+    private void PlayfabConnected(bool connected, string playfabID)
+    {
+        if (!connected)
+        {
+            Debug.LogError("Playfab signing in failed.");
+
+            return;
+        };
+
+        PhotonNetwork.GameVersion = _gameVersion;
+        PhotonNetwork.PhotonServerSettings.DevRegion = _region;
+        PhotonNetwork.NickName = Guid.NewGuid().ToString();
+        PhotonNetwork.AutomaticallySyncScene = true;
+
+        _client = PhotonNetwork.NetworkingClient;
+
+        _lobby.SubscribeRoomSearchEvent(OnRoomSearch);
+        _lobby.SubscribeRoomManualCreationCallback(OnRoomCreation);
+        _lobby.SubscribeRoomSelectionCallback(OnRoomSelection);
+
+        _room.SubscribeStartRoomCallback(OnStartGame);
+
+        _scene.PlayfabID = playfabID;
+
+        PhotonConnect();
     }
 
     #endregion

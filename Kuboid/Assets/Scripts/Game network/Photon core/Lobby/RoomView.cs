@@ -9,16 +9,23 @@ using ExitGames.Client.Photon;
 
 public class RoomView : MonoBehaviourPunCallbacks
 {
+    #region Constants
+
+    private const string GAME_IS_STARTED = "st";
+
+    #endregion
+
     #region Events
 
     private event Action _onLeaveRoom;
+    private event Action _onStartGame;
 
     #endregion
 
     #region Fields
 
     [Header("Settings")]
-    [SerializeField] private byte _maxPlayers;
+    [SerializeField] private byte _maxPlayers = 4;
 
     [Header("UI")]
     [SerializeField] private InputField _roomNameInput;
@@ -30,6 +37,10 @@ public class RoomView : MonoBehaviourPunCallbacks
     [SerializeField] private Button _startGameButton;
 
     private string _roomName;
+    
+    #endregion
+
+    #region Properties
 
     private LoadBalancingClient _client => PhotonNetwork.NetworkingClient;
 
@@ -69,6 +80,21 @@ public class RoomView : MonoBehaviourPunCallbacks
             for (int i = 0; i < leaveRoomHandlers.Count; i++)
             {
                 _onLeaveRoom -= leaveRoomHandlers[i];
+            };
+        };
+
+        var startGameHandlers =
+            _onStartGame
+                ?.GetInvocationList()
+                .ToList()
+                .Cast<Action>()
+                .ToList();
+
+        if (startGameHandlers != null)
+        {
+            for (int i = 0; i < startGameHandlers.Count; i++)
+            {
+                _onLeaveRoom -= startGameHandlers[i];
             };
         };
     }
@@ -117,11 +143,11 @@ public class RoomView : MonoBehaviourPunCallbacks
             var roomInfo = roomList[i];
 
             if (_client.CurrentRoom.Name != roomInfo.Name) continue;
-            
+
             UpdateRoom();
         };
     }
-
+    
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         RefreshFriendsList();
@@ -134,6 +160,18 @@ public class RoomView : MonoBehaviourPunCallbacks
 
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
+        if (propertiesThatChanged.TryGetValue(GAME_IS_STARTED, out var gameIsStarted))
+        {
+            if ((bool)gameIsStarted)
+            {
+                gameObject.SetActive(false);
+
+                _onStartGame?.Invoke();
+            };
+
+            return;
+        };
+
         UpdateRoom();
     }
 
@@ -148,6 +186,9 @@ public class RoomView : MonoBehaviourPunCallbacks
         _backButton.onClick.RemoveAllListeners();
         _backButton.onClick.AddListener(() => LeaveRoom());
 
+        _startGameButton.onClick.RemoveAllListeners();
+        _startGameButton.onClick.AddListener(() => StartGame());
+        
         _roomNameInput
             .onValueChanged
             .RemoveAllListeners();
@@ -162,13 +203,22 @@ public class RoomView : MonoBehaviourPunCallbacks
         _onLeaveRoom += action;
     }
 
+    public void SubscribeStartRoomCallback(Action action)
+    {
+        _onStartGame += action;
+    }
+
     public void CreateRoom(string roomName)
     {
         _roomName = roomName;
 
-        var roomOptions             = new RoomOptions();
-        roomOptions.MaxPlayers      = _maxPlayers;
+        var customProperties = new Hashtable();
+        customProperties.Add(GAME_IS_STARTED, false);
 
+        var roomOptions                     = new RoomOptions();
+        roomOptions.MaxPlayers              = _maxPlayers;
+        roomOptions.CustomRoomProperties    = customProperties;
+        
         var enterRoomParams         = new EnterRoomParams();
         enterRoomParams.RoomName    = _roomName;
         enterRoomParams.RoomOptions = roomOptions;
@@ -257,6 +307,14 @@ public class RoomView : MonoBehaviourPunCallbacks
     private void SetRoomName()
     {
         _roomNameInput.SetTextWithoutNotify(_client.CurrentRoom.Name);
+    }
+
+    private void StartGame()
+    {   
+        var customProperties = new Hashtable();
+        customProperties.Add(GAME_IS_STARTED, true);
+
+        _client.CurrentRoom.SetCustomProperties(customProperties);
     }
 
     #endregion
