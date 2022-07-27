@@ -49,15 +49,31 @@ public class PlayfabLoginController : IController
                 connectionCallback);
     }
 
+    public void ConnectPlayfab(string username, string password, Action<bool, string> connectionCallback)
+    {
+        var request = new LoginWithPlayFabRequest()
+        {
+            Username = username,
+            Password = password
+        };
+
+        PlayFabClientAPI
+            .LoginWithPlayFab(
+                request,
+                OnLoginSuccess,
+                OnLoginFailure,
+                connectionCallback);
+    }
+
     private void OnLoginSuccess(LoginResult result)
     {
         Debug.Log("Congratulations, you made successful API call!");
 
         _isConnected = true;
 
-        var connectionCallback = (Action<bool>) result.CustomData;
+        var connectionCallback = (Action<bool, string>) result.CustomData;
 
-        connectionCallback.Invoke(true);
+        connectionCallback.Invoke(true, result.PlayFabId);
     }
 
     private void OnLoginFailure(PlayFabError error)
